@@ -46,7 +46,7 @@ public class PropertiesFetcher extends AutocompletionFetcher {
 	protected String getPaginationQuery(int iterator, int count) {
 		String query = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 				"SELECT DISTINCT ?" + getSparqlKeyword() + " WHERE{\n" + 
-				"  ?" + getSparqlKeyword() + " a rdf:Property\n" + 
+				" ?s ?" + getSparqlKeyword() + " ?o\n" + 
 				"} ORDER BY ?" + getSparqlKeyword() + " ";
 		query += "LIMIT " + count;
 		query += " OFFSET " + (iterator * count);
@@ -55,7 +55,7 @@ public class PropertiesFetcher extends AutocompletionFetcher {
 	protected String getRegularQuery() {
 		return "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
 				"SELECT DISTINCT ?" + getSparqlKeyword() + " WHERE{\n" + 
-				"  ?" + getSparqlKeyword() + " a rdf:Property\n" + 
+				" ?s ?" + getSparqlKeyword() + " ?o\n" + 
 				"}";
 	}
 	
