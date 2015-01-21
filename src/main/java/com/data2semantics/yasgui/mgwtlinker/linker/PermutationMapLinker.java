@@ -154,7 +154,7 @@ public class PermutationMapLinker extends AbstractLinker {
 			// build manifest for our stable version
 			String manifestFile = entry.getKey() + PERMUTATION_MANIFEST_FILE_ENDING;
 			@SuppressWarnings("serial")
-			Map<String, String> fallbacks = new HashMap<String, String>(){{put("/", "../index.jsp");}};
+			Map<String, String> fallbacks = new HashMap<String, String>(){{put("../", "../index.jsp");}};
 			String maniFest = buildManiFest(entry.getKey(), stableExternalFiles, filesForCurrentPermutation, fallbacks);
 			toReturn.add(emitString(logger, maniFest, manifestFile));
 			
